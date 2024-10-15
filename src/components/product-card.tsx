@@ -5,10 +5,18 @@ import React from "react";
 import { Button } from "./ui/button";
 import { Expand, ShoppingCart } from "lucide-react";
 import formatter from "@/lib/formatter";
+import { useRouter } from "next/navigation";
 
 const ProductCard = ({ product }: { product: Product }) => {
+  const router = useRouter();
+
   return (
-    <div className="bg-white group cursor-pointer rounded-xl border p-3 sapce-y-4">
+    <div
+      className="bg-white group cursor-pointer rounded-xl border p-3 sapce-y-4"
+      onClick={() => {
+        router.push(`/products/${product.id}`);
+      }}
+    >
       <div className="aspect-square rouned-xl bg-gray-100 relative">
         <Image
           fill

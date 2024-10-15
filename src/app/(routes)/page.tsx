@@ -10,7 +10,6 @@ export default async function Home() {
     <div className="max-w-7xl mx-auto px-4 pb:10 md:px-0 ">
       <div className="space-y-10 pb-10">
         <Billboard data={billboard} />
-
         <div className="flex flex-col gap-y-8 sm:px-6 lg:px-8">
           <ProductList title="featured Products" products={featuredProducts} />
         </div>
