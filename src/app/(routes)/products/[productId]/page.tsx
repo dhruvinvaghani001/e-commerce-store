@@ -1,5 +1,5 @@
-import getProducts from "@/actions/get-products";
-import getProduct from "@/actions/get-product";
+import getProducts from "@/actions/get-products.ts";
+import getProduct from "@/actions/get-product.ts";
 import React from "react";
 import ProductList from "@/components/product-list";
 import Gallery from "@/components/Gallery";
