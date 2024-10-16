@@ -1,14 +1,21 @@
 "use client";
 import { Product } from "@/types";
 import Image from "next/image";
-import React from "react";
-import { Button } from "./ui/button";
+import React, { MouseEventHandler, useState } from "react";
 import { Expand, ShoppingCart } from "lucide-react";
 import formatter from "@/lib/formatter";
 import { useRouter } from "next/navigation";
+import { useCartStore } from "@/hookjs/use-cart";
 
 const ProductCard = ({ product }: { product: Product }) => {
   const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
+  const cart = useCartStore();
+
+  const handleAddTocart: MouseEventHandler<SVGElement> = (event) => {
+    event.stopPropagation();
+    cart.addItem(product);
+  };
 
   return (
     <div
@@ -27,13 +34,14 @@ const ProductCard = ({ product }: { product: Product }) => {
         <div className="opacity-0  group-hover:opacity-100 transition absolute w-full px-6 bottom-5">
           <div className="flex gap-x-6 justify-center ">
             <button className="rounded-full bg-white shadow-md p-2 hover:scale-110 transition">
-              <Expand size={20} className="text-gray-600" onClick={() => {}} />
+              <Expand size={20} className="text-gray-600" />
             </button>
+
             <button className="rounded-full bg-white shadow-md p-2 hover:scale-110 transition">
               <ShoppingCart
                 size={20}
                 className="text-gray-600"
-                onClick={() => {}}
+                onClick={handleAddTocart}
               />
             </button>
           </div>

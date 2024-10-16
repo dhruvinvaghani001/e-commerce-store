@@ -19,7 +19,7 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
         onValueChange={setActiveTab}
         className="w-full max-w-2xl mx-auto"
       >
-        <div className="relative h-96 mb-8 overflow-hidden rounded-lg">
+        <div className="relative h-96 mb-8 overflow-hidden rounded-lg border-2 ">
           {images.map((image, index) => (
             <TabsContent
               key={image.id}
@@ -30,7 +30,7 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
                 src={image.url}
                 alt={`Product image ${index + 1}`}
                 layout="fill"
-                objectFit="cover"
+                objectFit="contain"
                 className="w-full h-full object-center"
               />
             </TabsContent>
