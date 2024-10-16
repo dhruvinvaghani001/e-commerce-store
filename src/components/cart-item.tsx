@@ -1,13 +1,14 @@
 "use client";
 import { useCartStore } from "@/hook/use-cart";
 import formatter from "@/lib/formatter";
-import { Product } from "@/types";
-import { X } from "lucide-react";
+import { CartProduct, Product } from "@/types";
+import { Minus, Plus, X } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import { Button } from "./ui/button";
 
 interface CartItemProps {
-  data: Product;
+  data: CartProduct;
 }
 
 const CartItem = ({ data }: CartItemProps) => {
@@ -42,6 +43,28 @@ const CartItem = ({ data }: CartItemProps) => {
           </div>
           <div className="font-semibold">
             {formatter.format(Number(data.price))}
+          </div>
+        </div>
+        <div className="flex flex-col gap-2 ">
+          {/* <p>Quantity : {data.quantity}</p> */}
+          <div className="flex gap-x-3 items-center">
+            <Button
+              onClick={() => {
+                cart.increaseQuantity(data.id, data.stockQuanity);
+              }}
+              variant={"ghost"}
+            >
+              <Plus className="h-4 w-4 " />
+            </Button>
+            {data.quantity}
+            <Button
+              onClick={() => {
+                cart.decreaseQuantity(data.id);
+              }}
+              variant={"ghost"}
+            >
+              <Minus className="h-4 w-4 " />
+            </Button>
           </div>
         </div>
       </div>

@@ -3,17 +3,24 @@
 import { useCartStore } from "@/hook/use-cart";
 import formatter from "@/lib/formatter";
 import { Button } from "./ui/button";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { stat } from "fs";
 import axios from "axios";
+import { useSession } from "next-auth/react";
 
 const CartSummary = () => {
   const cart = useCartStore();
   const searchParams = useSearchParams();
   const items = useCartStore((state) => state.items);
   const removeAll = useCartStore((state) => state.removeAll);
+
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  const user = session?.user;
+
   useEffect(() => {
     if (searchParams.get("success")) {
       toast.success("Order Placed");
@@ -25,20 +32,25 @@ const CartSummary = () => {
   }, [searchParams, removeAll]);
 
   const total = cart.items.reduce((acc, curr) => {
-    return acc + Number(curr.price);
+    return acc + Number(curr.price) * Number(curr.quantity);
   }, 0);
 
   const onCheckout = async () => {
-    try {
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
-        {
-          productIds: items.map((item) => item.id),
-        }
-      );
-      window.location = response.data.url;
-    } catch (error) {
-      toast.error("Something went wrong!");
+    if (!user) {
+      router.push("/signin?callbackUrl=/cart");
+    } else {
+      try {
+        const response = await axios.post(
+          `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
+          {
+            productIds: items.map((item) => item.id),
+            userId: user?.id!,
+          }
+        );
+        window.location = response.data.url;
+      } catch (error) {
+        toast.error("Something went wrong!");
+      }
     }
   };
 
@@ -52,7 +64,11 @@ const CartSummary = () => {
         </div>
       </div>
       <div className="mt-6 w-full ">
-        <Button className="rounded-full w-full " onClick={onCheckout}>
+        <Button
+          className="rounded-full w-full "
+          disabled={cart.items.length == 0}
+          onClick={onCheckout}
+        >
           Checkout
         </Button>
       </div>

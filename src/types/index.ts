@@ -35,4 +35,9 @@ export interface Product {
   size: Size;
   color: Color;
   images: Image[];
+  stockQuanity: number;
+}
+
+export interface CartProduct extends Product {
+  quantity: number;
 }

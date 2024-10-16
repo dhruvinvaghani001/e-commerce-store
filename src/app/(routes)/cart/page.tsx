@@ -3,11 +3,13 @@ import CartItem from "@/components/cart-item";
 import CartSummary from "@/components/cart-summary";
 import NoResult from "@/components/no-results";
 import { useCartStore } from "@/hook/use-cart";
+import { useSession } from "next-auth/react";
 import React, { Suspense, useEffect, useState } from "react";
 
 const CartPage = () => {
   const cart = useCartStore();
-
+  const { data: session } = useSession();
+  console.log(session);
   return (
     <div className="max-w-7xl mx-auto pb-10 px-4 md:px-0">
       <div className="px-4 py-16 sm:px-6 lg:px-8">

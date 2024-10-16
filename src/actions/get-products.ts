@@ -19,9 +19,10 @@ const getProducts = async (query: Query) => {
       isFeatured: query.isFeatured,
     },
   });
-
+  
   const res = await fetch(url);
   const data = await res.json();
+  
   return data?.data;
 };
 
