@@ -14,13 +14,11 @@ interface ProductPageProps {
 const ProductPage = async ({ params }: ProductPageProps) => {
   const productId = params.productId;
   const product = await getProduct(productId);
-  console.log("PDT");
-  console.log(product);
+ 
   const suggestedProducts = await getProducts({
     categoryId: product?.category?.id,
   });
-  console.log("SUGGESTED PDT");
-  console.log(suggestedProducts);
+ 
   return (
     <div className="max-w-7xl mx-auto px-4 md:px-0 ">
       <div className="px-4 py-10 sm:px-6 lg:px-8 ">
