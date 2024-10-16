@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { useCartStore } from "@/hook/use-cart";
 import { Product } from "@/types";
-import { MinusCircle, RemoveFormatting, ShoppingCart } from "lucide-react";
+import { MinusCircle, ShoppingCart } from "lucide-react";
 
 const AddTocartButton = ({ product }: { product: Product }) => {
   const [mounted, setMounted] = useState(false);
