@@ -1,6 +1,6 @@
 "use client";
 
-import { useCartStore } from "@/hookjs/use-cart";
+import { useCartStore } from "@/hook/use-cart";
 import formatter from "@/lib/formatter";
 import { Button } from "./ui/button";
 import { useSearchParams } from "next/navigation";

@@ -2,7 +2,7 @@
 import CartItem from "@/components/cart-item";
 import CartSummary from "@/components/cart-summary";
 import NoResult from "@/components/no-results";
-import { useCartStore } from "@/hookjs/use-cart";
+import { useCartStore } from "@/hook/use-cart";
 import React, { useEffect, useState } from "react";
 
 const CartPage = () => {

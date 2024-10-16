@@ -1,5 +1,5 @@
 "use client";
-import { useCartStore } from "@/hookjs/use-cart";
+import { useCartStore } from "@/hook/use-cart";
 import formatter from "@/lib/formatter";
 import { Product } from "@/types";
 import { X } from "lucide-react";

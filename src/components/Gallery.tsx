@@ -30,8 +30,8 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
                 src={image.url}
                 alt={`Product image ${index + 1}`}
                 layout="fill"
-                objectFit="contain"
-                className="w-full h-full object-center"
+                loading="lazy"
+                className="w-full h-full object-contain object-center"
               />
             </TabsContent>
           ))}

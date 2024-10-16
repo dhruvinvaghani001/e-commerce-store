@@ -5,7 +5,7 @@ import React, { MouseEventHandler, useState } from "react";
 import { Expand, ShoppingCart } from "lucide-react";
 import formatter from "@/lib/formatter";
 import { useRouter } from "next/navigation";
-import { useCartStore } from "@/hookjs/use-cart";
+import { useCartStore } from "@/hook/use-cart";
 
 const ProductCard = ({ product }: { product: Product }) => {
   const router = useRouter();

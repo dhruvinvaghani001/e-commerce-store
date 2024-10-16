@@ -3,6 +3,8 @@ import { Product } from "@/types";
 import React from "react";
 import { Button } from "./ui/button";
 import { ShoppingCart, ShoppingCartIcon } from "lucide-react";
+import { useCartStore } from "@/hook/use-cart";
+import AddTocartButton from "./AddTocartButton";
 
 interface ProductInfoProps {
   product: Product;
@@ -32,7 +34,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
         </div>
       </div>
       <div className="mt-10 flex items-center gap-x-3">
-        <Button className="flex items-center gap-x-2 ">Add To Cart <ShoppingCart /> </Button>
+        <AddTocartButton product={product} />
       </div>
     </div>
   );
