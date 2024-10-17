@@ -54,20 +54,20 @@ const CartItem = ({ data }: CartItemProps) => {
           <div className="flex gap-x-3 items-center">
             <Button
               onClick={() => {
-                cart.increaseQuantity(data.id, data.stockQuanity);
-              }}
-              variant={"ghost"}
-            >
-              <Plus className="h-4 w-4 " />
-            </Button>
-            {data.quantity}
-            <Button
-              onClick={() => {
                 cart.decreaseQuantity(data.id);
               }}
               variant={"ghost"}
             >
               <Minus className="h-4 w-4 " />
+            </Button>
+            {data.quantity}
+            <Button
+              onClick={() => {
+                cart.increaseQuantity(data.id, data.stockQuanity);
+              }}
+              variant={"ghost"}
+            >
+              <Plus className="h-4 w-4 " />
             </Button>
           </div>
         </div>

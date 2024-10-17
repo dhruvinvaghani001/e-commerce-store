@@ -5,7 +5,6 @@ import { JWT } from "next-auth/jwt";
 import GoogleProvider from "next-auth/providers/google";
 import { db } from "@/lib/prismaClient";
 import { User } from "@prisma/client";
-import { redirect } from "next/dist/server/api-utils";
 
 export const authOptions = {
   providers: [
@@ -24,7 +23,7 @@ export const authOptions = {
   },
 
   callbacks: {
-    async redirect({ url, baseUrl }) {
+    async redirect({ url, baseUrl }:{ url: string; baseUrl: string }) {
       return baseUrl;
     },
     async jwt({

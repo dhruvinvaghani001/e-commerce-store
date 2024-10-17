@@ -13,8 +13,9 @@ const ProductCard = ({ product }: { product: Product }) => {
   const cart = useCartStore();
 
   const handleAddTocart: MouseEventHandler<SVGElement> = (event) => {
+    const cartProduct = {...product,quantity:0}
     event.stopPropagation();
-    cart.addItem(product);
+    cart.addItem(cartProduct);
   };
 
   return (

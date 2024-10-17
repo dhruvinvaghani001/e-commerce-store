@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { signIn } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
 
-const page = () => {
+const SigninPage = () => {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/";
   return (
@@ -54,4 +54,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default SigninPage;
