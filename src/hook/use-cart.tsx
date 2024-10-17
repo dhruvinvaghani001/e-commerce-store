@@ -38,16 +38,17 @@ export const useCartStore = create(
         const existingItem = currItems.find((item) => item.id === id);
 
         if (existingItem) {
-          // Check if the current quantity plus one exceeds available stock
           if (existingItem.quantity + 1 > available) {
             toast.error("Cannot increase quantity beyond available stock");
             return;
           }
-
+          if (existingItem.quantity + 1 > 10) {
+            toast.error("Cannot add more than 10 Product!");
+            return;
+          }
           const updatedItems = currItems.map((item) =>
             item.id === id ? { ...item, quantity: item.quantity + 1 } : item
           );
-
           set({ items: updatedItems });
           toast.success("Item quantity increased");
         }
@@ -63,7 +64,6 @@ export const useCartStore = create(
             set({ items: updatedItems });
             toast.success("Item quantity decreased");
           } else {
-            // If quantity is 1, remove the item instead
             const updatedCart = currItems.filter((item) => item.id !== id);
             set({ items: updatedCart });
             toast.success("Item removed from cart");
