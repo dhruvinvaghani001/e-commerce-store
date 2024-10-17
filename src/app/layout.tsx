@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/header/navbar";
 import { Toaster } from "react-hot-toast";
 import AuthProvider from "@/components/auth/AuthProvider";
 import { getServerSession } from "next-auth";

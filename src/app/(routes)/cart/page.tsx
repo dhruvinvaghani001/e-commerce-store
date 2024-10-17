@@ -1,10 +1,12 @@
 "use client";
-import CartItem from "@/components/cart-item";
-import CartSummary from "@/components/cart-summary";
+import React, { Suspense } from "react";
+
+import CartItem from "@/components/cart/cart-item";
+import CartSummary from "@/components/cart/cart-summary";
 import NoResult from "@/components/no-results";
+
 import { useCartStore } from "@/hook/use-cart";
 import { useSession } from "next-auth/react";
-import React, { Suspense, useEffect, useState } from "react";
 
 const CartPage = () => {
   const cart = useCartStore();

@@ -4,7 +4,7 @@ import getColors from "@/actions/get-colors";
 import getProducts from "@/actions/get-products";
 import getSizes from "@/actions/get-sizes";
 import Billboard from "@/components/billboard";
-import ProductList from "@/components/product-list";
+import ProductList from "@/components/products/product-list";
 import Filter from "@/components/ui/filter";
 import React from "react";
 interface CategoryPageProps {

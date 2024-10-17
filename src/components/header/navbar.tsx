@@ -1,8 +1,8 @@
 import Link from "next/link";
 import React from "react";
-import Navigation from "./Navigation";
+import Navigation from "./navigation";
 import getCategories from "@/actions/get-categories";
-import NavbarActions from "./NavbarActions";
+import NavbarActions from "./nav-bar-actions";
 
 export const revalidate = 3600;
 

@@ -1,11 +1,15 @@
 "use client";
+import React from "react";
+import Image from "next/image";
+
+import { CartProduct } from "@/types";
+
 import { useCartStore } from "@/hook/use-cart";
 import formatter from "@/lib/formatter";
-import { CartProduct, Product } from "@/types";
+
+import { Button } from "@/components/ui/button";
 import { Minus, Plus, X } from "lucide-react";
-import Image from "next/image";
-import React from "react";
-import { Button } from "./ui/button";
+import AddTocartButton from "./add-to-cart-button";
 
 interface CartItemProps {
   data: CartProduct;

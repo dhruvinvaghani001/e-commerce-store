@@ -1,6 +1,6 @@
 import { Product } from "@/types";
 import React from "react";
-import NoResult from "./no-results";
+import NoResult from "../no-results";
 import ProductCard from "./product-card";
 
 interface ProductListProps {

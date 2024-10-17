@@ -1,6 +1,6 @@
 "use client";
 import { signOut, useSession } from "next-auth/react";
-import { LogOut } from "lucide-react";
+import { ListOrdered, LogOut } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,10 +11,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { useRouter } from "next/navigation";
 
 const UserButton = () => {
   const { data: session } = useSession();
-
+  const router = useRouter();
   if (!session?.user) {
     return null;
   }
@@ -41,6 +42,10 @@ const UserButton = () => {
             <DropdownMenuItem onClick={() => signOut()}>
               <LogOut className="mr-2 h-4 w-4" />
               <span>Log out</span>
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => router.push("/orders")}>
+              <ListOrdered className="mr-2 h-4 w-4" />
+              <span>Orders</span>
             </DropdownMenuItem>
           </DropdownMenuGroup>
         </DropdownMenuContent>

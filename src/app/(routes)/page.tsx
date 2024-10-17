@@ -1,8 +1,7 @@
 import getBillboard from "@/actions/get-billboard.ts";
 import getProducts from "@/actions/get-products.ts";
 import Billboard from "@/components/billboard";
-import ProductList from "@/components/product-list";
-import { useSession } from "next-auth/react";
+import ProductList from "@/components/products/product-list";
 
 export default async function Home() {
   const billboard = await getBillboard("522bdc1d-3cb0-4ac8-9fcc-ed3e38f8e464");

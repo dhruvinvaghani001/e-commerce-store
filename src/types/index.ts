@@ -41,3 +41,19 @@ export interface Product {
 export interface CartProduct extends Product {
   quantity: number;
 }
+
+export interface OrderItem {
+  id: string;
+  product: Product;
+  quantity: number;
+}
+
+export interface Order {
+  id: string;
+  userId: string;
+  isPaid: boolean;
+  phone: string;
+  adress: string;
+  storeId: string;
+  orderItems: OrderItem[];
+}

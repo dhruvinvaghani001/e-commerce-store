@@ -1,10 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { ShoppingBag } from "lucide-react";
 import { useCartStore } from "@/hook/use-cart";
 import { useRouter } from "next/navigation";
-import UserButton from "./auth/UserButton";
+import UserButton from "../auth/UserButton";
+import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 const NavbarActions = () => {
   const [mounted, setMounted] = useState(false);
@@ -15,6 +17,7 @@ const NavbarActions = () => {
   }, []);
 
   const router = useRouter();
+  const { data: session } = useSession();
 
   if (!mounted) {
     return null;

@@ -1,10 +1,10 @@
 import formatter from "@/lib/formatter";
 import { Product } from "@/types";
 import React from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { ShoppingCart, ShoppingCartIcon } from "lucide-react";
 import { useCartStore } from "@/hook/use-cart";
-import AddTocartButton from "./AddTocartButton";
+import AddTocartButton from "../cart/add-to-cart-button";
 
 interface ProductInfoProps {
   product: Product;

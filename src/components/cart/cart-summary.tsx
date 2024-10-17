@@ -2,7 +2,7 @@
 
 import { useCartStore } from "@/hook/use-cart";
 import formatter from "@/lib/formatter";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
