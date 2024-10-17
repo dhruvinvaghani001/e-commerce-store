@@ -24,7 +24,6 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
         <div className="flex items-center gap-x-4">
           <h3 className="font-semibold text-black">Size:</h3>
           <div>{product?.size?.name}</div>
-          <div>{product.stockQuanity == 0 && "Out of Stock"}</div>
         </div>
         <div className="flex items-center gap-x-4">
           <h3 className="font-semibold text-black">Color:</h3>
@@ -33,6 +32,11 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
             style={{ backgroundColor: product.color.value }}
           />
         </div>
+        {product.stockQuanity == 0 && (
+          <div className="flex items-center gap-x-4">
+            <h3 className="font-semibold text-black">Out Of Stock</h3>
+          </div>
+        )}
       </div>
       <div className="mt-10 flex items-center gap-x-3">
         <AddTocartButton product={product} />
