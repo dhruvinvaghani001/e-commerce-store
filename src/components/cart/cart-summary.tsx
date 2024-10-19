@@ -51,8 +51,16 @@ const CartSummary = () => {
           }
         );
         window.location = response.data.url;
-      } catch (error) {
-        toast.error("Something went wrong!");
+      } catch (error: any) {
+        console.log(error);
+        if (error.response) {
+          // The server responded with a status code outside of 2xx
+          const errorMessage =
+            error.response.data.message || "An error occurred during checkout.";
+          toast.error(errorMessage);
+          console.error("Server error:", errorMessage);
+        }
+        toast.error(error?.response?.data?.message || "Something went wrong!");
       }
     }
   };

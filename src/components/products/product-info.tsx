@@ -11,6 +11,7 @@ interface ProductInfoProps {
 }
 
 const ProductInfo = ({ product }: ProductInfoProps) => {
+  console.log(product);
   return (
     <div>
       <h1 className="font-bold text-3xl text-gray-900">{product.name}</h1>
@@ -38,9 +39,11 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
           </div>
         )}
       </div>
-      <div className="mt-10 flex items-center gap-x-3">
-        <AddTocartButton product={product} />
-      </div>
+      {product.stockQuanity != 0 && (
+        <div className="mt-10 flex items-center gap-x-3">
+          <AddTocartButton product={product} />
+        </div>
+      )}
     </div>
   );
 };

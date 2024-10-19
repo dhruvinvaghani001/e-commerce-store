@@ -6,14 +6,16 @@ import { Expand, ShoppingCart } from "lucide-react";
 import formatter from "@/lib/formatter";
 import { useRouter } from "next/navigation";
 import { useCartStore } from "@/hook/use-cart";
+import { Badge } from "../ui/badge";
 
 const ProductCard = ({ product }: { product: Product }) => {
   const router = useRouter();
+  console.log(product);
   const [isOpen, setIsOpen] = useState(false);
   const cart = useCartStore();
 
   const handleAddTocart: MouseEventHandler<SVGElement> = (event) => {
-    const cartProduct = {...product,quantity:0}
+    const cartProduct = { ...product, quantity: 0 };
     event.stopPropagation();
     cart.addItem(cartProduct);
   };
@@ -38,13 +40,15 @@ const ProductCard = ({ product }: { product: Product }) => {
               <Expand size={20} className="text-gray-600" />
             </button>
 
-            <button className="rounded-full bg-white shadow-md p-2 hover:scale-110 transition">
-              <ShoppingCart
-                size={20}
-                className="text-gray-600"
-                onClick={handleAddTocart}
-              />
-            </button>
+            {product.stockQuanity && (
+              <button className="rounded-full bg-white shadow-md p-2 hover:scale-110 transition">
+                <ShoppingCart
+                  size={20}
+                  className="text-gray-600"
+                  onClick={handleAddTocart}
+                />
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -56,6 +60,11 @@ const ProductCard = ({ product }: { product: Product }) => {
         <div className="font-semibold">
           {formatter.format(Number(product.price))}
         </div>
+        {product.stockQuanity == 0 && (
+          <div>
+            <Badge>Out of Stock</Badge>
+          </div>
+        )}
       </div>
     </div>
   );
