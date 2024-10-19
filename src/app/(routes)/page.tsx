@@ -3,6 +3,8 @@ import getProducts from "@/actions/get-products.ts";
 import Billboard from "@/components/billboard";
 import ProductList from "@/components/products/product-list";
 
+export const revalidate = 3600;
+
 export default async function Home() {
   const billboard = await getBillboard("522bdc1d-3cb0-4ac8-9fcc-ed3e38f8e464");
   const featuredProducts = await getProducts({ isFeatured: true });

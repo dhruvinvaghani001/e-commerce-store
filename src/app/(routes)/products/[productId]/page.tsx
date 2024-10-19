@@ -5,6 +5,8 @@ import ProductList from "@/components/products/product-list";
 import Gallery from "@/components/products/product-gallery";
 import ProductInfo from "@/components/products/product-info";
 
+export const revalidate = 3600;
+
 interface ProductPageProps {
   params: {
     productId: string;
@@ -14,6 +16,8 @@ interface ProductPageProps {
 const ProductPage = async ({ params }: ProductPageProps) => {
   const productId = params.productId;
   const product = await getProduct(productId);
+
+  
 
   const suggestedProducts = await getProducts({
     categoryId: product?.category?.id,

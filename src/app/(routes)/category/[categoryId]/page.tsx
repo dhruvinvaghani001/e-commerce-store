@@ -7,6 +7,8 @@ import Billboard from "@/components/billboard";
 import ProductList from "@/components/products/product-list";
 import Filter from "@/components/ui/filter";
 import React from "react";
+
+export const revalidate = 3600;
 interface CategoryPageProps {
   params: {
     categoryId: string;

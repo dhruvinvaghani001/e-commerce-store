@@ -11,6 +11,7 @@ interface ProductInfoProps {
 }
 
 const ProductInfo = ({ product }: ProductInfoProps) => {
+  console.log("PRODUCT INFO PAGE:");
   console.log(product);
   return (
     <div>
