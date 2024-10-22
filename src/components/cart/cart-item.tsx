@@ -9,7 +9,6 @@ import formatter from "@/lib/formatter";
 
 import { Button } from "@/components/ui/button";
 import { Minus, Plus, X } from "lucide-react";
-import AddTocartButton from "./add-to-cart-button";
 
 interface CartItemProps {
   data: CartProduct;

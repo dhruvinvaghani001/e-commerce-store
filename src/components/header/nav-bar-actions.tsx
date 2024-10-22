@@ -5,7 +5,6 @@ import { ShoppingBag } from "lucide-react";
 import { useCartStore } from "@/hook/use-cart";
 import { useRouter } from "next/navigation";
 import UserButton from "../auth/UserButton";
-import Link from "next/link";
 import { useSession } from "next-auth/react";
 
 const NavbarActions = () => {

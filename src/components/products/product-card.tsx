@@ -10,7 +10,6 @@ import { Badge } from "../ui/badge";
 
 const ProductCard = ({ product }: { product: Product }) => {
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
   const cart = useCartStore();
 
   const handleAddTocart: MouseEventHandler<SVGElement> = (event) => {

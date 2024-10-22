@@ -8,7 +8,6 @@ export const revalidate = 3600;
 
 const Navbar = async () => {
   const data = await getCategories();
-  // console.log(data);
 
   return (
     <div className="border-b">

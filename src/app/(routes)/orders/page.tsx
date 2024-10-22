@@ -1,7 +1,6 @@
 import getOrders from "@/actions/get-orders";
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 import OrderClient from "@/components/orders/order-client";
-import axios from "axios";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import React from "react";
