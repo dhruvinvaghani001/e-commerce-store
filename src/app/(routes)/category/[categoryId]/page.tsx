@@ -8,6 +8,21 @@ import ProductList from "@/components/products/product-list";
 import Filter from "@/components/ui/filter";
 import React from "react";
 
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { categoryId: string };
+}) {
+  const category = await getCategory(params.categoryId);
+  return {
+    title: `E-Store | ${category.name}`,
+    openGraph: {
+      images: [category?.billboard?.image],
+    },
+  };
+}
+
 export const revalidate = 3600;
 interface CategoryPageProps {
   params: {

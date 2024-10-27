@@ -7,6 +7,7 @@ import NoResult from "@/components/no-results";
 
 import { useCartStore } from "@/hook/use-cart";
 import { useSession } from "next-auth/react";
+import { Metadata } from "next";
 
 const CartPage = () => {
   const cart = useCartStore();

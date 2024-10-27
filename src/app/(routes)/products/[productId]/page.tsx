@@ -7,6 +7,20 @@ import ProductInfo from "@/components/products/product-info";
 
 export const revalidate = 3600;
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { productId: string };
+}) {
+  const product = await getProduct(params.productId);
+  return {
+    title: product.name,
+    openGraph: {
+      images: [product.images[0].url],
+    },
+  };
+}
+
 interface ProductPageProps {
   params: {
     productId: string;
@@ -16,8 +30,6 @@ interface ProductPageProps {
 const ProductPage = async ({ params }: ProductPageProps) => {
   const productId = params.productId;
   const product = await getProduct(productId);
-
-  
 
   const suggestedProducts = await getProducts({
     categoryId: product?.category?.id,
